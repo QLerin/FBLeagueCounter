@@ -19,7 +19,7 @@ namespace FBLeagueTimer.API
             request.AddQueryParameter("endIndex", "90");
             request.AddQueryParameter("beginTime", new DateTime(2019, 12, 13).UnixTimeStamp());
             var response = client.Execute<MatchesList>(request);
-            return response.Data.Matches;
+            return response.Data?.Matches;
         }
     }
 }

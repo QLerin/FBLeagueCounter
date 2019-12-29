@@ -15,6 +15,11 @@ namespace FBLeagueTimer.Features
             var summoner = new SummonerGetter().GetSummonerName(name);
             var matches = new MatchHistoryGetter().GetMatches(summoner.AccountId);
 
+            if (matches == null)
+            {
+                return firstBloodInformation;
+            }
+
             var matchGetter = new MatchGetter();
             var matchDtos = new List<MatchDto>();
             foreach (var match in matches)
