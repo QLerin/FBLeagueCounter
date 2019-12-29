@@ -8,5 +8,10 @@ namespace FBLeagueTimer.Utilities
         {
             return dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds.ToString();
         }
+
+        public static DateTime GetTimeFromUnixTime(long unixTime)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(unixTime);
+        }
     }
 }

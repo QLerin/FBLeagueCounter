@@ -1,8 +1,7 @@
-﻿using FBLeagueTimer.API;
-using FBLeagueTimer.Features;
-using System.Linq;
+﻿using FBLeagueTimer.Features;
 using System.Windows;
 
+//TODO move out to viewmodel/binding and stuff
 namespace FBLeagueTimer
 {
     /// <summary>
@@ -15,11 +14,16 @@ namespace FBLeagueTimer
             InitializeComponent();
         }
 
-        //TODO move out to viewmodel
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var name = "QLerin";
+            var name = PlayerName.Text;
+            if (string.IsNullOrEmpty(name))
+            {
+                return;
+            }
             var count = new FirstBloodsCounter().GetFirstBloodCount(name);
+            FirstBloodCount.Content = count.Counts.ToString();
+            LoggingTextBox.Text = count.Logging;
         }
     }
 }

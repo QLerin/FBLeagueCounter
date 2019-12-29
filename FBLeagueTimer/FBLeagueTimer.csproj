@@ -80,6 +80,7 @@
     <Compile Include="Entities\PlayerDto.cs" />
     <Compile Include="Entities\RuneDto.cs" />
     <Compile Include="Entities\Summoner.cs" />
+    <Compile Include="Features\FirstBloodsInformation.cs" />
     <Compile Include="Utilities\DateTimeToUnixTimeStamp.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

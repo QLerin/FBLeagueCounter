@@ -1,5 +1,6 @@
 ﻿using FBLeagueTimer.API;
 using FBLeagueTimer.Entities;
+using FBLeagueTimer.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,8 +8,10 @@ namespace FBLeagueTimer.Features
 {
     public class FirstBloodsCounter
     {
-        public int GetFirstBloodCount(string name)
+        public FirstBloodsInformation GetFirstBloodCount(string name)
         {
+            var firstBloodInformation = new FirstBloodsInformation();
+
             var summoner = new SummonerGetter().GetSummonerName(name);
             var matches = new MatchHistoryGetter().GetMatches(summoner.AccountId);
 
@@ -22,8 +25,8 @@ namespace FBLeagueTimer.Features
                     matchDtos.Add(matchDto);
                 }
             }
+            matches.Reverse();
 
-            int firstBloods = 0;
             foreach (var matchDto in matchDtos)
             {
                 var participantIdentity = matchDto.ParticipantIdentities.FirstOrDefault(part => part.Player.SummonerId == summoner.Id);
@@ -41,11 +44,13 @@ namespace FBLeagueTimer.Features
 
                 if (participant.Stats.FirstBloodKill)
                 {
-                    firstBloods++;
+                    firstBloodInformation.Counts++;
+                    var gameTime = DateTimeToUnixTimeStamp.GetTimeFromUnixTime(matchDto.GameCreation);
+                    firstBloodInformation.Logging += $"{firstBloodInformation.Counts}. {gameTime.ToShortDateString()} {gameTime.ToShortTimeString()}  {matchDto.GameMode} \n";
                 }
             }
 
-            return firstBloods;
+            return firstBloodInformation;
         }
     }
 }
