@@ -1,10 +1,12 @@
 ﻿using FBLeagueTimer.Entities;
+using FBLeagueTimer.Utilities;
 using RestSharp;
+using System;
 using System.Collections.Generic;
 
 namespace FBLeagueTimer.API
 {
-    public class MatchesGetter
+    public class MatchHistoryGetter
     {
         public List<Match> GetMatches(string accountId)
         {
@@ -14,6 +16,8 @@ namespace FBLeagueTimer.API
             request.AddUrlSegment("id", accountId);
 
             request.AddHeader("X-Riot-Token", Constants.DevKey);
+            request.AddQueryParameter("endIndex", "90");
+            request.AddQueryParameter("beginTime", new DateTime(2019, 12, 13).UnixTimeStamp());
             var response = client.Execute<MatchesList>(request);
             return response.Data.Matches;
         }

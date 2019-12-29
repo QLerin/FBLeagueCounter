@@ -59,8 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="API\MatchesGetter.cs" />
+    <Compile Include="API\MatchHistoryGetter.cs" />
+    <Compile Include="API\MatchGetter.cs" />
     <Compile Include="API\MatchTimelineGetter.cs" />
+    <Compile Include="Entities\MasteryDto.cs" />
+    <Compile Include="Entities\MatchDto.cs" />
     <Compile Include="Entities\MatchEventDto.cs" />
     <Compile Include="Entities\MatchFrameDto .cs" />
     <Compile Include="Entities\MatchParticipantFrameDto.cs" />
@@ -70,7 +73,14 @@
     <Compile Include="Entities\Match.cs" />
     <Compile Include="API\SummonerGetter.cs" />
     <Compile Include="Entities\MatchesList.cs" />
+    <Compile Include="Entities\ParticipantDto.cs" />
+    <Compile Include="Entities\ParticipantIdentityDto.cs" />
+    <Compile Include="Entities\ParticipantStatsDto.cs" />
+    <Compile Include="Entities\ParticipantTimelineDto.cs" />
+    <Compile Include="Entities\PlayerDto.cs" />
+    <Compile Include="Entities\RuneDto.cs" />
     <Compile Include="Entities\Summoner.cs" />
+    <Compile Include="Utilities\DateTimeToUnixTimeStamp.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,6 +89,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Entities\TeamBansDto.cs" />
+    <Compile Include="Entities\TeamStatsDto.cs" />
+    <Compile Include="Features\FirstBloodsCounter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
