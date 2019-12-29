@@ -30,7 +30,7 @@ namespace FBLeagueTimer.Features
                     matchDtos.Add(matchDto);
                 }
             }
-            matches.Reverse();
+            matchDtos.Reverse();
 
             foreach (var matchDto in matchDtos)
             {
