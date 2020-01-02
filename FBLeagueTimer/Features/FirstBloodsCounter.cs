@@ -13,7 +13,7 @@ namespace FBLeagueTimer.Features
             var firstBloodInformation = new FirstBloodsInformation();
 
             var summoner = new SummonerGetter().GetSummonerName(name);
-            var matches = new MatchHistoryGetter().GetMatches(summoner.AccountId);
+            var matches = new MatchHistoryGetter().GetMatchesForFirstBlood(summoner.AccountId);
 
             if (matches == null)
             {

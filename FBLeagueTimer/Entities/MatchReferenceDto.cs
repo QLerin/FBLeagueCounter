@@ -1,9 +1,12 @@
-﻿namespace FBLeagueTimer.Entities
+﻿using LiteDB;
+
+namespace FBLeagueTimer.Entities
 {
-    public class Match
+    public class MatchReferenceDto
     {
-        public string Lane { set; get; }
+        [BsonId]
         public long GameId { set; get; }
+        public string Lane { set; get; }
         public int Champion { set; get; }
         public string PlatformId { set; get; }
         public int Season { set; get; }

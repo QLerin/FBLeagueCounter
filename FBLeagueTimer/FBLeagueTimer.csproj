@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiteDB, Version=4.1.4.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.4.1.4\lib\net40\LiteDB.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -62,17 +65,19 @@
     <Compile Include="API\MatchHistoryGetter.cs" />
     <Compile Include="API\MatchGetter.cs" />
     <Compile Include="API\MatchTimelineGetter.cs" />
+    <Compile Include="API\PlayerMatches.cs" />
+    <Compile Include="Database\PlayerMatchesDatabase.cs" />
     <Compile Include="Entities\MasteryDto.cs" />
     <Compile Include="Entities\MatchDto.cs" />
     <Compile Include="Entities\MatchEventDto.cs" />
     <Compile Include="Entities\MatchFrameDto .cs" />
+    <Compile Include="Entities\MatchlistDto.cs" />
     <Compile Include="Entities\MatchParticipantFrameDto.cs" />
     <Compile Include="Entities\MatchPositionDto.cs" />
     <Compile Include="Entities\MatchTimelineDto.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Entities\Match.cs" />
+    <Compile Include="Entities\MatchReferenceDto.cs" />
     <Compile Include="API\SummonerGetter.cs" />
-    <Compile Include="Entities\MatchesList.cs" />
     <Compile Include="Entities\ParticipantDto.cs" />
     <Compile Include="Entities\ParticipantIdentityDto.cs" />
     <Compile Include="Entities\ParticipantStatsDto.cs" />
@@ -82,6 +87,8 @@
     <Compile Include="Entities\Summoner.cs" />
     <Compile Include="Features\FirstBloodsInformation.cs" />
     <Compile Include="Utilities\DateTimeToUnixTimeStamp.cs" />
+    <Compile Include="Utilities\LimitingRequests\ShittyLimiter.cs" />
+    <Compile Include="Utilities\LimitingRequests\TimedRequest.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
