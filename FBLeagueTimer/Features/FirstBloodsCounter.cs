@@ -1,5 +1,6 @@
 ﻿using FBLeagueTimer.API;
 using FBLeagueTimer.Entities;
+using FBLeagueTimer.Exceptions;
 using FBLeagueTimer.Utilities;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,10 @@ namespace FBLeagueTimer.Features
 
             foreach (var matchDto in matchDtos)
             {
+                if (matchDto.GameMode == null)
+                {
+                    throw new NullMatchException("Failed request.");
+                }
                 var participantIdentity = matchDto.ParticipantIdentities.FirstOrDefault(part => part.Player.SummonerId == summoner.Id);
                 if (participantIdentity == null)
                 {
